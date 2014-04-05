@@ -8,15 +8,22 @@
 		<script type="text/javascript" src="application.js"></script>
 	</head>
     <body>
-    	<h1>"Welcome to hot or cold!"</h1>
-    	<input type="text"></input>
-    	<button name="submit" type="submit">SUBMIT</button>
-    	<div id="answers">
+        <h1>Let's play<br><span id="Hot">Hot</span> or <span id="Cold">Cold!</span></br></h1>
+    <div id="main-container">
+        <div id="responses">
+            <h2 id="feedback">Select a number between 1 and 100.</h2>
+        </div>
+            <div id="inputField">
+    	       <input type="text" id="text"></input>
+    	       <button name="submit" type="submit">SUBMIT</button>
+        </div>
+    	<div id="pastGuesses">
     		<ul>
-    			<li>guesses</li>
+    			<li id="listHeader">GUESSES</li>
 
     		</ul>
     	</div>
+    </div>
     </body>
 
-    </html>	
+</html>	

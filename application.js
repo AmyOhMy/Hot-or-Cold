@@ -2,14 +2,30 @@ $(document).ready(function() {
 	var randomNumber = Math.floor(Math.random()*100);
 	alert(randomNumber);
 
-	$('button').click(function() {
-		var guess = $('input').val();
+	/*Declare Variables*/
+	var userInput;
+	var guess;
+	var emptyTextArea;
 
-		$('ul').prepend(guess);
-		if (guess == NaN) {
+/*Function to reset text area and focus the cursor*/
+	emptyTextArea = function() {
+        $("#text").val("");
+        $("#text").focus();
+    };
+
+/*New Code to try*/
+	userInput = function() {
+        event.preventDefault();
+        guess = $("#text").val();
+        console.log(guess);
+
+	/* Ambreen's original code  
+	$("button").click(function() {
+		var guess = $("input").val();*/
+		if (isNaN(guess)) {
 			alert("Numbers only please!");
 		} else if(guess > 100) {
-			alert("Keep it below 100 please!");
+			$("<h2 id = 'feedback'>" + "Let's keep it below 100!" + "</h2>").replaceAll("h2");
 		} else if(guess < 1) {
 			alert("Let's keep it positive!");	
 		} else if(guess == randomNumber) {
@@ -30,6 +46,15 @@ $(document).ready(function() {
 			alert("Total popsicle!");	
 		
 				
-	}	
-}
+	}
+};
 
+$("button").click(userInput);
+
+/*Put in under button.click --> $('ul').prepend(guess);
+
+
+userInput = function() {
+        event.preventDefault();
+        guess = $(".text").val();
+        console.log(guess);*/
