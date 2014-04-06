@@ -25,7 +25,7 @@ $(document).ready(function() {
 		if (isNaN(guess)) {
 			alert("Numbers only please!");
 		} else if(guess > 100) {
-			$("<h2 id = 'feedback'>" + "Let's keep it below 100!" + "</h2>").replaceAll("h2");
+			$("<h2 id = 'feedback'>" + "Let's keep it below 100!" + "</h2>").replaceAll("h2");/*Tried this instead of 'alert' for troubleshooting*/
 		} else if(guess < 1) {
 			alert("Let's keep it positive!");	
 		} else if(guess == randomNumber) {
