@@ -4,8 +4,10 @@ $(document).ready(function() {
 
 	/*Declare Variables*/
 	var userInput;
-	var guess;
 	var emptyTextArea;
+	var numGuesses = 0;
+	var userJustWon = false;
+	var inputIsValid = false;
 
 /*Function to reset text area and focus the cursor*/
 	emptyTextArea = function() {
@@ -13,43 +15,17 @@ $(document).ready(function() {
         $("#text").focus();
     };
 
-/*New Code to try*/
-	userInput = function() {
-        event.preventDefault();
-        guess = $("#text").val();
-        console.log(guess);
 
-	/* Ambreen's original code  
-	$("button").click(function() {
-		var guess = $("input").val();*/
-		if (isNaN(guess)) {
-			alert("Numbers only please!");
-		} else if(guess > 100) {
-			$("<h2 id = 'feedback'>" + "Let's keep it below 100!" + "</h2>").replaceAll("h2");/*Tried this instead of 'alert' for troubleshooting*/
-		} else if(guess < 1) {
-			alert("Let's keep it positive!");	
-		} else if(guess == randomNumber) {
-			alert("You guessed correct!");	
-		} else if((Math.abs(guess-randomNumber))<2){
-			alert("Burning hot!");	
-		} else if((Math.abs(guess-randomNumber))<5){
-			alert("Hot!");
-		} else if ((Math.abs(guess-randomNumber))<10){
-			alert("Warm");
-		} else if ((Math.abs(guess-randomNumber))<15){
-			alert("Luke Warm");
-		} else if ((Math.abs(guess-randomNumber))<20){
-			alert("Cold");
-		} else if ((Math.abs(guess-randomNumber))<25){
-			alert("Freezing Cold!");
-		} else if((Math.abs(guess-randomNumber))<100){
-			alert("Total popsicle!");	
-		
-				
-	}
-};
+/*User submits a guess*/	 
+	$("button").click(function (event) {
+		event.preventDefault();
+			userInput = $("input").val();
+});
 
 $("button").click(userInput);
+userInput();
+
+});
 
 /*Put in under button.click --> $('ul').prepend(guess);
 
@@ -57,4 +33,27 @@ $("button").click(userInput);
 userInput = function() {
         event.preventDefault();
         guess = $(".text").val();
-        console.log(guess);*/
+        console.log(guess);
+
+
+
+        if(userInput == randomNumber) {
+			alert("You guessed correct!");
+			userJustWon = true;	
+		} else if((Math.abs(userInput-randomNumber))<2){
+			alert("Burning hot!");	
+		} else if((Math.abs(userInput-randomNumber))<5){
+			alert("Hot!");
+		} else if ((Math.abs(userInput-randomNumber))<10){
+			alert("Warm");
+		} else if ((Math.abs(userInput-randomNumber))<15){
+			alert("Luke Warm");
+		} else if ((Math.abs(userInput-randomNumber))<20){
+			alert("Cold");
+		} else if ((Math.abs(userInput-randomNumber))<25){
+			alert("Freezing Cold!");
+		} else if((Math.abs(userInput-randomNumber))<100){
+			alert("Total popsicle!");	
+				
+	}
+	*/
