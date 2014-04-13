@@ -6,6 +6,7 @@ $(document).ready(function() {
 	var userInput;
 	var emptyTextArea;
 	var numGuesses = 0;
+	var guessList;
 	var userJustWon = false;
 	var inputIsValid = false;
 
@@ -22,6 +23,7 @@ $("button").click(function (event) {
 		event.preventDefault();
 			userInput = $("input").val();
 			console.log("The user has chosen " + userInput);
+			displayGuess();
 
 
 if(userInput == randomNumber) {
@@ -43,14 +45,22 @@ if(userInput == randomNumber) {
 			$("#feedback").text("Ice Ice Baby");			
 	}
 
-});		
+});	
+
+/*Add a li to Guesses field*/
+function displayGuess() {
+  		numGuesses++;
+		$('#pastGuesses').append("<li>" + userInput + "</li>");
+
+}
 
 
 $("button").click(userInput);
 
+
 });
 
-/*Put in under button.click --> $('ul').prepend(guess);
+/*Put in under button.click --> $('ul').prepend(userInput);
 
 $("#feedback").text("Smokin' HOT!!!");
 
