@@ -132,17 +132,6 @@ button {
 	margin-bottom: 5px;
 }
 
-ul {
-	list-style-type: none;
-	width: 242px;
-	height: 92px;
-	margin-top: 5px;
-	margin-right: auto;
-	margin-left: auto;
-	/*border: solid;*/
-	padding: 4px;
-}
-
 #listHeader {
 	text-align: center;
 	font-family: Lucida Grande, Lucida Sans Unicode, Verdana, sans-serif;
@@ -150,6 +139,28 @@ ul {
 	font-size: 1em;
 	padding: 5px;
 }
+
+ul {
+	
+	width: 242px;
+	height: 92px;
+	display: block;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	overflow: auto;
+	/*border: solid;*/
+	
+}
+
+ul li {
+	list-style-type: none;
+	display: inline-block;
+	color: white;
+	padding: 4px;
+}
+
+
 	
 
 
