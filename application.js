@@ -18,29 +18,29 @@ $(document).ready(function() {
 
 
 /*User submits a guess*/	 
-	$("button").click(function (event) {
+$("button").click(function (event) {
 		event.preventDefault();
 			userInput = $("input").val();
 			console.log("The user has chosen " + userInput);
 
 
 if(userInput == randomNumber) {
-			alert("You guessed correct!");
+			$("#feedback").text("You guessed correct!");
 			userJustWon = true;	
 		} else if((Math.abs(userInput-randomNumber))<=2){
-			alert("Burning hot!");	
+			$("#feedback").text("Burning hot!");	
 		} else if((Math.abs(userInput-randomNumber))<5){
-			alert("Hot!");
+			$("#feedback").text("Hot!");
 		} else if ((Math.abs(userInput-randomNumber))<10){
-			alert("Warm");
+			$("#feedback").text("Warm");
 		} else if ((Math.abs(userInput-randomNumber))<15){
-			alert("Luke Warm");
+			$("#feedback").text("Luke Warm");
 		} else if ((Math.abs(userInput-randomNumber))<20){
-			alert("Cold");
+			$("#feedback").text("Cold");
 		} else if ((Math.abs(userInput-randomNumber))<25){
-			alert("Freezing Cold!");
+			$("#feedback").text("Freezing Cold!");
 		} else if((Math.abs(userInput-randomNumber))<100){
-			alert("Ice Ice Baby.");			
+			$("#feedback").text("Ice Ice Baby");			
 	}
 
 });		
@@ -51,6 +51,9 @@ $("button").click(userInput);
 });
 
 /*Put in under button.click --> $('ul').prepend(guess);
+
+$("#feedback").text("Smokin' HOT!!!");
+
 
 if(userInput == randomNumber) {
 			alert("You guessed correct!");
