@@ -4,6 +4,7 @@ $(document).ready(function() {
 
 	/*Declare Variables*/
 	var userInput;
+	var emptyTextArea;
 	var numGuesses = 0;
 	var guessList;
 	var userJustWon = false;
@@ -53,8 +54,6 @@ function displayGuess() {
 });
 
 /*Put comments here
-
-
 Get rid of the SUBMIT button. Add "Enter" instructions into game.
 
 Leave line 22
@@ -79,14 +78,6 @@ inItemText.onkeyup = function(event) {
 		} else { 
 			return false;
 			}
-
-/*Function to reset text area and focus the cursor
-I DID NOT NEED THIS
-	emptyTextArea = function() {
-        
-      /*$("#text").focus();
-        $("#text").select();
-    };*/
 
 
 	*/
