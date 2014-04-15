@@ -4,44 +4,40 @@ $(document).ready(function() {
 
 	/*Declare Variables*/
 	var userInput;
-	var emptyTextArea;
 	var numGuesses = 0;
 	var guessList;
 	var userJustWon = false;
 	var inputIsValid = false;
 
-/*Function to reset text area and focus the cursor*/
-	emptyTextArea = function() {
-        $("#text").val("");
-        $("#text").focus();
-        $("#text").select();
-    };
-
 
 /*User submits a guess*/	 
-$("button").click(function (event) {
+$("#text").keypress(function (event) {
+	if (event.which == 13) {
+		
+/*$("button").click(function (event) {*/
 		event.preventDefault();
 			userInput = $("input").val();
 			console.log("The user has chosen " + userInput);
 			displayGuess();
-
+			$("#text").val("");
+}
 
 if(userInput == randomNumber) {
 			$("#feedback").text("You guessed correct!");
 			userJustWon = true;	
 		} else if((Math.abs(userInput-randomNumber))<=2){
 			$("#feedback").text("Burning hot!");	
-		} else if((Math.abs(userInput-randomNumber))<5){
+		} else if((Math.abs(userInput-randomNumber))<=5){
 			$("#feedback").text("Hot!");
-		} else if ((Math.abs(userInput-randomNumber))<10){
+		} else if ((Math.abs(userInput-randomNumber))<=10){
 			$("#feedback").text("Warm");
-		} else if ((Math.abs(userInput-randomNumber))<15){
+		} else if ((Math.abs(userInput-randomNumber))<=15){
 			$("#feedback").text("Luke Warm");
-		} else if ((Math.abs(userInput-randomNumber))<20){
+		} else if ((Math.abs(userInput-randomNumber))<=20){
 			$("#feedback").text("Cold");
-		} else if ((Math.abs(userInput-randomNumber))<25){
+		} else if ((Math.abs(userInput-randomNumber))<=25){
 			$("#feedback").text("Freezing Cold!");
-		} else if((Math.abs(userInput-randomNumber))<100){
+		} else if((Math.abs(userInput-randomNumber))<=100){
 			$("#feedback").text("Ice Ice Baby");			
 	}
 
@@ -51,46 +47,46 @@ if(userInput == randomNumber) {
 function displayGuess() {
   		numGuesses++;
 		$('#pastGuesses').append("<li>" + userInput + "</li>");
-
 }
-
-
-$("button").click(userInput);
 
 
 });
 
-/*Put in under button.click --> $('ul').prepend(userInput);
-
-$("#feedback").text("Smokin' HOT!!!");
+/*Put comments here
 
 
-if(userInput == randomNumber) {
-			alert("You guessed correct!");
-			userJustWon = true;
-		} else if((Math.abs(userInput-randomNumber))<=2){
-			alert("Burning hot!");
-		} else (alert("try again!"));
+Get rid of the SUBMIT button. Add "Enter" instructions into game.
+
+Leave line 22
+say when some presses ENTER trigger event, not when someone presses button.
+Line 57 onKeyPress return userInput
+
+emptyTextArea = function() {
+  $('#text').val('');
+  };
 
 
+1.get the function to work by having the user press enter instead of submit
+2. keep the function with the submit button, and clearly state that hte text value should be clear after submission
+Submit in JS is really a page refresh.  
 
-        if(userInput == randomNumber) {
-			alert("You guessed correct!");
-			userJustWon = true;	
-		} else if((Math.abs(userInput-randomNumber))<2){
-			alert("Burning hot!");	
-		} else if((Math.abs(userInput-randomNumber))<5){
-			alert("Hot!");
-		} else if ((Math.abs(userInput-randomNumber))<10){
-			alert("Warm");
-		} else if ((Math.abs(userInput-randomNumber))<15){
-			alert("Luke Warm");
-		} else if ((Math.abs(userInput-randomNumber))<20){
-			alert("Cold");
-		} else if ((Math.abs(userInput-randomNumber))<25){
-			alert("Freezing Cold!");
-		} else if((Math.abs(userInput-randomNumber))<100){
-			alert("Total popsicle!");	
-				
-	}
+inItemText.onkeyup = function(event) {
+
+	//Event.which (13) -> ENTER
+	//only proceed if key pressed is ENTER key	
+	if (event.which == 13) {
+	var itemText = inItemText.value;
+		} else { 
+			return false;
+			}
+
+/*Function to reset text area and focus the cursor
+I DID NOT NEED THIS
+	emptyTextArea = function() {
+        
+      /*$("#text").focus();
+        $("#text").select();
+    };*/
+
+
 	*/
